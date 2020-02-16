@@ -2123,6 +2123,7 @@ MonoBehaviour:
   clipSize: 6
   reloadTime: 0.7
   bText: {fileID: 0}
+  chance: 50
 --- !u!60 &2003200983
 PolygonCollider2D:
   m_ObjectHideFlags: 0
