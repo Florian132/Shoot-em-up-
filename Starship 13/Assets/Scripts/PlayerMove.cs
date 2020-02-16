@@ -58,14 +58,15 @@ public class PlayerMove : MonoBehaviour
             //Debug.Log("Lives left: " + playerLives);
         }
 
-        /*if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "EnemyBullet")
         {
-                StartCoroutine(PlayerHit());
-                Debug.Log("Lives left: " + playerLives);
-        }*/
-        
+            StartCoroutine(PlayerHit());
+            Destroy(collision.gameObject);
+            Debug.Log("Lives left: " + playerLives);
+        }
+
     }
-    IEnumerator PlayerHit()
+    public IEnumerator PlayerHit()
     {
         // Lose 1 life
         playerLives--;

@@ -8,6 +8,7 @@ TagManager:
   - ScoreHolder
   - Deleter
   - Bullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Player
   - Floor
   - Enemy
-  - 
-  - 
+  - Bullet
+  - EnemyBullet
   - 
   - 
   - 
