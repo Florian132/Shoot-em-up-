@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
 
     private bool isReloading = false;
     public Text bText;
+    public Text iText;
 
     BulletsUi bulletsUI;
 
@@ -41,6 +42,7 @@ public class Weapon : MonoBehaviour
     {
         ammo = clipSize;
         bText = GameObject.Find("BulletsText").GetComponent<Text>();
+        iText = GameObject.Find("InputText").GetComponent<Text>();
         ammunition = ammo.ToString();
 
         bulletsUI = GameObject.FindObjectOfType<BulletsUi>();
@@ -57,6 +59,7 @@ public class Weapon : MonoBehaviour
                 ammo = clipSize;
                 bulletsUI.bulletsReload();
                 gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+                iText.text = null;
                 isReloading = false;
                 Jammed = false;
             }
@@ -68,6 +71,7 @@ public class Weapon : MonoBehaviour
                     Debug.Log("Wrong Number Key Pressed!");
                     current = Random.Range(0, 9);
                     Debug.Log("Press " + current + " to reload!");
+                    iText.text = current.ToString();
                 }
             }
         }
@@ -131,6 +135,7 @@ public class Weapon : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.color = new Color(0f, 0f, 1f);
         current = Random.Range(0, 9);
         Debug.Log("Press " + current + " to reload!");
+        iText.text = current.ToString();
         isReloading = true;
         Jammed = true;     
     }
