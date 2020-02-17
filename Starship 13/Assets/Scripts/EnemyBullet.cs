@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class EnemyBullet : MonoBehaviour
 {
     public float speed = -4f;
@@ -16,6 +18,17 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
 
-    }
 
+
+    }
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        //PlayerMove player = hitInfo.GetComponent<PlayerMove>();
+        //if (player != null)
+        //{
+        //    StartCoroutine(player.PlayerHit());
+        //    Destroy(gameObject);    
+        //}
+ 
+    }
 }

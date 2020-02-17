@@ -16,13 +16,33 @@ public class Weapon : MonoBehaviour
 
     private bool isReloading = false;
     public Text bText;
+    public Text iText;
 
     BulletsUi bulletsUI;
+
+    public int chance = 30;
+    private int JamChance;
+    private bool Jammed = false;
+    private int current;
+    private KeyCode[] keys = {
+        KeyCode.Alpha0,
+        KeyCode.Alpha1,
+        KeyCode.Alpha2,
+        KeyCode.Alpha3,
+        KeyCode.Alpha4,
+        KeyCode.Alpha5,
+        KeyCode.Alpha6,
+        KeyCode.Alpha7,
+        KeyCode.Alpha8,
+        KeyCode.Alpha9
+    };
+
 
     private void Start()
     {
         ammo = clipSize;
         bText = GameObject.Find("BulletsText").GetComponent<Text>();
+        iText = GameObject.Find("InputText").GetComponent<Text>();
         ammunition = ammo.ToString();
 
         bulletsUI = GameObject.FindObjectOfType<BulletsUi>();
@@ -31,6 +51,32 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Jammed)
+        {
+            if (Input.GetKeyDown(keys[current]))
+            {
+                Debug.Log("Reloading");
+                ammo = clipSize;
+                bulletsUI.bulletsReload();
+                gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+                iText.text = null;
+                isReloading = false;
+                Jammed = false;
+            }
+
+            for (int i = 0; i <= 9; i++)
+            {
+                if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[current]))
+                {
+                    Debug.Log("Wrong Number Key Pressed!");
+                    current = Random.Range(0, 9);
+                    Debug.Log("Press " + current + " to reload!");
+                    iText.text = current.ToString();
+                }
+            }
+        }
+
+
         if (isReloading)
             return;
 
@@ -41,15 +87,26 @@ public class Weapon : MonoBehaviour
         //Reload if ammo is less or equal to zero
         if (ammo <= 0)
         {
-            StartCoroutine(Reload());
-            return;
+            JamChance = Random.Range(0, 100);
+            if(JamChance <= chance)
+            {
+                GunJam();
+            }
+            else
+            {
+                StartCoroutine(Reload());
+            }
         }
+
+       
 
         //Check if player hits the fire button, if yes then shoot
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
+
+        
     }
 
     void Shoot()
@@ -71,5 +128,15 @@ public class Weapon : MonoBehaviour
         ammo = clipSize;
         bulletsUI.bulletsReload();
         gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+    }
+    void GunJam()
+    {
+        Debug.Log("JAMMED");
+        gameObject.GetComponent<Renderer>().material.color = new Color(0f, 0f, 1f);
+        current = Random.Range(0, 9);
+        Debug.Log("Press " + current + " to reload!");
+        iText.text = current.ToString();
+        isReloading = true;
+        Jammed = true;     
     }
 }
