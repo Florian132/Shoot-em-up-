@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
 
     private Text l_Text;
 
+    Highscore highscore;
     Hearts hearts;
 
 
@@ -31,6 +32,7 @@ public class PlayerMove : MonoBehaviour
         //l_Text = GameObject.Find("LivesText").GetComponent<Text>();
         //DisplayLives();
 
+        highscore = GameObject.FindObjectOfType<Highscore>();
         hearts = GameObject.FindObjectOfType<Hearts>();
     }
 
@@ -54,34 +56,32 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            StartCoroutine(PlayerHit());
+            PlayerHit();
+            Destroy(collision.gameObject);
             //Debug.Log("Lives left: " + playerLives);
         }
 
         if (collision.gameObject.tag == "EnemyBullet")
         {
-            StartCoroutine(PlayerHit());
+            PlayerHit();
             Destroy(collision.gameObject);
             Debug.Log("Lives left: " + playerLives);
         }
 
     }
-    public IEnumerator PlayerHit()
+    private void PlayerHit()
     {
         // Lose 1 life
         playerLives--;
         hearts.livesDown();
         if (playerLives == 0)
         {
+            highscore.saveYourScore();
+            highscore.newHighScoreCheck();
             //DisplayLives();
             SceneManager.LoadScene("DeathScene");
             Destroy(gameObject);
         }
-        // Remove collider for 1 second
-        m_Collider.enabled = false;
-        yield return new WaitForSeconds(1f);
-
-        m_Collider.enabled = true;
     }
     /*void DisplayLives()
     {
