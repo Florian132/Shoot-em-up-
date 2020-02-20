@@ -608,7 +608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecb8faf82bda254fbc7f642d3a81db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScore: 0
 --- !u!4 &518700629
 Transform:
   m_ObjectHideFlags: 0
@@ -2358,7 +2357,8 @@ MonoBehaviour:
   reloadTime: 0.7
   bText: {fileID: 0}
   iText: {fileID: 0}
-  chance: 50
+  chance: 10
+  currentkeys: 000000000000000000000000
 --- !u!60 &2003200983
 PolygonCollider2D:
   m_ObjectHideFlags: 0

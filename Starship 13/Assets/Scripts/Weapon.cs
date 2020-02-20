@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
     private bool Jammed1 = false;
     private bool Jammed2 = false;
     private bool Jammed3 = false;
-    private int current;
+    public int[] currentkeys = new int[3];
     private KeyCode[] keys = {
         KeyCode.Alpha0,
         KeyCode.Alpha1,
@@ -66,60 +66,48 @@ public class Weapon : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        if(Jammed1)
+    {
+        if (Jammed1)
         {
-            if(Input.GetKeyDown(keys[current]) || Input.GetKeyDown(numpad[current]))
-            { 
-                current = Random.Range(0, 9);
-                Debug.Log("Press " + current);
-                iText.text = "Press: " + current.ToString();
+            if (Input.GetKeyDown(keys[currentkeys[0]]))
+            {
+                Debug.Log("First Key Pressed");
+                iText.text = currentkeys[1] + " " + currentkeys[2].ToString();
                 Jammed1 = false;
                 Jammed2 = true;
             }
-            for (int i = 0; i <= keys.Length; i++)
+            for (int i = 0; i < keys.Length; i++)
             {
-                if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[current]))
+                if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[currentkeys[0]]))
                 {
-                    current = Random.Range(0, 9);
-                    iText.text = "Press: " + current.ToString();
-                }
-                if (Input.GetKeyDown(numpad[i]) && !Input.GetKeyDown(numpad[current]))
-                {
-                    current = Random.Range(0, 9);
-                    iText.text = "Press: " + current.ToString();
+                    Debug.Log("Wrong Key Pressed");
+                    Randomize();
                 }
             }
         }
 
-        if(Jammed2)
+        else if(Jammed2)
         {
-            if(Input.GetKeyDown(keys[current]) || Input.GetKeyDown(numpad[current]))
+            if (Input.GetKeyDown(keys[currentkeys[1]]))
             {
-                current = Random.Range(0, 9);
-                Debug.Log("Press " + current);
-
-                iText.text = "Press: " + current.ToString();
+                iText.text = currentkeys[2].ToString();
                 Jammed2 = false;
                 Jammed3 = true;
             }
-                for (int i = 0; i <= keys.Length; i++)
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[currentkeys[1]]))
                 {
-                    if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[current]))
-                    {
-                        current = Random.Range(0, 9);
-                        iText.text = "Press: " + current.ToString();
-                    }
-                if (Input.GetKeyDown(numpad[i]) && !Input.GetKeyDown(numpad[current]))
-                {
-                    current = Random.Range(0, 9);
-                    iText.text = "Press: " + current.ToString();
+                    Randomize();
+                    Jammed2 = false;
+                    Jammed1 = true;
                 }
             }
         }
-        if (Jammed3)
+
+        else if(Jammed3)
         {
-            if (Input.GetKeyDown(keys[current]) || Input.GetKeyDown(numpad[current]))
+            if (Input.GetKeyDown(keys[currentkeys[2]]))
             {
                 Debug.Log("Reloading");
                 ammo = clipSize;
@@ -129,25 +117,17 @@ public class Weapon : MonoBehaviour
                 isReloading = false;
                 Jammed3 = false;
             }
-
-            for (int i = 0; i <= keys.Length; i++)
+            for (int i = 0; i < keys.Length; i++)
             {
-                if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[current]))
+                if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[currentkeys[2]]))
                 {
-                    Debug.Log("Wrong Number Key Pressed!");
-                    current = Random.Range(0, 9);
-                    Debug.Log("Press " + current + " to reload!");
-                    iText.text = "Press: " + current.ToString();
-                }
-                if (Input.GetKeyDown(numpad[i]) && !Input.GetKeyDown(numpad[current]))
-                {
-                    Debug.Log("Wrong Number Key Pressed!");
-                    current = Random.Range(0, 9);
-                    Debug.Log("Press " + current + " to reload!");
-                    iText.text = "Press: " + current.ToString();
+                    Randomize();
+                    Jammed3 = false;
+                    Jammed1 = true;
                 }
             }
         }
+    
 
 
         if (isReloading)
@@ -161,7 +141,7 @@ public class Weapon : MonoBehaviour
         if (ammo <= 0)
         {
             JamChance = Random.Range(0, 100);
-            if(JamChance <= chance)
+            if (JamChance <= chance)
             {
                 GunJam();
             }
@@ -171,7 +151,7 @@ public class Weapon : MonoBehaviour
             }
         }
 
-       
+
 
         //Check if player hits the fire button, if yes then shoot
         if (Input.GetButtonDown("Fire1"))
@@ -179,7 +159,7 @@ public class Weapon : MonoBehaviour
             Shoot();
         }
 
-        
+
     }
 
     void Shoot()
@@ -206,10 +186,19 @@ public class Weapon : MonoBehaviour
     {
         Debug.Log("JAMMED");
         gameObject.GetComponent<Renderer>().material.color = new Color(0f, 0f, 1f);
-        current = Random.Range(0, 9);
-        Debug.Log("Press " + current);
-        iText.text = "Press: " + current.ToString();
+        Randomize();
         isReloading = true;
-        Jammed1 = true;     
+        Jammed1 = true;
+    }
+
+    void Randomize()
+    {
+        for (int i = 0; i < currentkeys.Length; i++)
+        {
+            currentkeys[i] = Random.Range(0, 9);
+        }
+        Debug.Log("Keys are randomized");
+        iText.text = currentkeys[0] + " " + currentkeys[1] + " " + currentkeys[2].ToString();
     }
 }
+

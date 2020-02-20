@@ -56,6 +56,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+
             PlayerHit();
             Destroy(collision.gameObject);
             //Debug.Log("Lives left: " + playerLives);
