@@ -8,6 +8,7 @@ public class ButtonHandler : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("SampleScene");
+        Destroy(GameObject.FindObjectOfType<Highscore>());
     }
     public void QuitGame()
     {

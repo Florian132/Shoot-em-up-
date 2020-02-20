@@ -14,21 +14,4 @@ public class EnemyBullet : MonoBehaviour
     {
         rb.velocity = transform.up * speed;
     }
-
-    void Update()
-    {
-
-
-
-    }
-    void OnTriggerEnter2D(Collider2D hitInfo)
-    {
-        //PlayerMove player = hitInfo.GetComponent<PlayerMove>();
-        //if (player != null)
-        //{
-        //    StartCoroutine(player.PlayerHit());
-        //    Destroy(gameObject);    
-        //}
- 
-    }
 }
