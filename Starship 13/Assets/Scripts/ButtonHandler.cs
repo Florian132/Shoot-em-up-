@@ -10,6 +10,10 @@ public class ButtonHandler : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
         Destroy(GameObject.FindObjectOfType<Highscore>());
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Titel");
+    }
     public void QuitGame()
     {
         Application.Quit();

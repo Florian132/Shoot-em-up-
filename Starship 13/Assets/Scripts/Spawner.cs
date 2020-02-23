@@ -5,13 +5,13 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject EnemyPrefab;
-    public float timeBeforeSpawning = 1.5f;
     public Renderer rend;
     public float timeBetweenEnemies = 0.25f;
-    public float timeBeforeWaves = 2.0f;
+    public float timeBetweenWaves = 5.0f;
     int Pattern_Number;
     public int enemiesPerWave = 10;
     private int currentNumberOfEnemies = 0;
+    private bool IsSpawning = true;
 
     
 
@@ -21,22 +21,33 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnEnemies());
+       
     }
 
-    // Update is called once per frame
     void Update()
     {
 
-
     }
+
+    //IEnumerator NextWave()
+    //{
+    //    float timer = 0;
+    //    do
+    //    {
+    //        timer = Time.deltaTime;
+    //        yield return null;
+    //    }
+    //    while (timer < timeBetweenWaves);
+    //    SpawnEnemies();
+
+        
+    //}
 
     IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(timeBeforeSpawning);
-        while(true)
+        while (IsSpawning == true) 
         {
-            if (currentNumberOfEnemies <=0)
-            {
+       
                 for (int i = 0; i < enemiesPerWave; i++)
                 {
                     var Min_X = transform.position.x - rend.bounds.size.x / 2;
@@ -48,22 +59,12 @@ public class Spawner : MonoBehaviour
                     currentNumberOfEnemies++;
                     yield return new WaitForSeconds(timeBetweenEnemies);
                 }
-            }
-            yield return new WaitForSeconds(timeBeforeWaves);
+
+            IsSpawning = false;
+            yield return new WaitForSeconds(timeBetweenWaves);
+            IsSpawning = true;
         }
+        
     }
 
-
-
-    //void SpawnEnemies()
-    //{
-
-    //    var Min_X = transform.position.x - rend.bounds.size.x / 2;
-
-    //    var Max_X = transform.position.x + rend.bounds.size.x / 2;
-
-    //    var spawnPoint = new Vector2(Random.Range(Min_X, Max_X), transform.position.y);
-
-    //    Instantiate(EnemyPrefab, spawnPoint, Quaternion.identity);
-    //}
 }

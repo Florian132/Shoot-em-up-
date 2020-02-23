@@ -608,7 +608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecb8faf82bda254fbc7f642d3a81db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScore: 0
 --- !u!4 &518700629
 Transform:
   m_ObjectHideFlags: 0
@@ -1294,7 +1293,7 @@ PrefabInstance:
     - target: {fileID: 6330698180089658805, guid: 8128bb723fc768c4a8f6e0629b679499,
         type: 3}
       propertyPath: enemiesPerWave
-      value: 99999999
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6330698180089658805, guid: 8128bb723fc768c4a8f6e0629b679499,
         type: 3}
