@@ -15,13 +15,5 @@ public class DeathScore : MonoBehaviour
         highscore = GameObject.FindObjectOfType<Highscore>();
         yourScoreText.text = "Final score: " + highscore.loadYourScore().ToString();
         highScoreText.text = "High score: " + highscore.loadHighScore().ToString();
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
