@@ -1,14 +1,19 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Backgroundparallax
     - Bullet
     - BulletsUi
     - ButtonHandler
+    - DeathScore
     - Enemy
+    - EnemyBullet
+    - EnemyWeapon
     - Hearts
     - Highscore
     - PlayerMove
     - SceneRestart
+    - SceneSwitcher
     - Spawner
     - Weapon
     Unity.Rider.Editor.dll:
@@ -44,21 +49,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11154}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11320}
+      Script: {instanceID: 11326}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11436}
+      Script: {instanceID: 11442}
     - Class: 114
-      Script: {instanceID: 11768}
+      Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 12160}
+      Script: {instanceID: 12172}
     - Class: 114
-      Script: {instanceID: 12654}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12782}
+    - Class: 114
+      Script: {instanceID: 13028}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -103,35 +110,41 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11154}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11188}
+      Script: {instanceID: 11194}
     - Class: 114
-      Script: {instanceID: 11320}
+      Script: {instanceID: 11326}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11480}
+      Script: {instanceID: 11486}
     - Class: 114
-      Script: {instanceID: 11532}
+      Script: {instanceID: 11538}
     - Class: 114
-      Script: {instanceID: 11544}
+      Script: {instanceID: 11550}
     - Class: 114
-      Script: {instanceID: 11706}
+      Script: {instanceID: 11656}
     - Class: 114
-      Script: {instanceID: 11768}
+      Script: {instanceID: 11658}
     - Class: 114
-      Script: {instanceID: 12088}
+      Script: {instanceID: 11716}
     - Class: 114
-      Script: {instanceID: 12524}
+      Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 12654}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12100}
     - Class: 114
-      Script: {instanceID: 13056}
+      Script: {instanceID: 12538}
     - Class: 114
-      Script: {instanceID: 13076}
+      Script: {instanceID: 12666}
+    - Class: 114
+      Script: {instanceID: 13028}
+    - Class: 114
+      Script: {instanceID: 13072}
+    - Class: 114
+      Script: {instanceID: 13092}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -141,6 +154,55 @@ ScriptsOnlyBuild:
     - Class: 196
       Script: {instanceID: 0}
     - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Titel.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11160}
+    - Class: 114
+      Script: {instanceID: 11326}
+    - Class: 114
+      Script: {instanceID: 11366}
+    - Class: 114
+      Script: {instanceID: 11778}
+    - Class: 114
+      Script: {instanceID: 12172}
+    - Class: 114
+      Script: {instanceID: 12666}
+    - Class: 114
+      Script: {instanceID: 12964}
+    - Class: 114
+      Script: {instanceID: 13028}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -309,7 +371,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 6a54446cbc7fc6e9d81cfd8f4c675386
+      Hash: 491fa222bda4a438cb7e0238e254343d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Spawner
@@ -339,6 +401,18 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: c5b88d9bbf036576c9df6a71def40def
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyWeapon
+  - hash:
+      serializedVersion: 2
+      Hash: e645fca2a8b5f8d8b87fefb3dc7c5330
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Backgroundparallax
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -351,7 +425,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 0fc538e20a7b3079913cbe96fdc4d550
+      Hash: bdc30e7418d14981c892347b78bf8e6d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon
@@ -409,6 +483,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonClick
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -495,6 +575,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: e645fca2a8b5f8d8b87fefb3dc7c5330
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BackgroundLoop
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -531,6 +617,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: c9553d5de200ccae363fbc122bce34d2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeathScore
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -565,6 +657,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneSwitcher
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -653,4 +751,5 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/DeathScene.unity
-  playerPath: C:/Users/ellio/Desktop/Starship 13 Build/Shmup test-1.exe
+  - Assets/Scenes/Titel.unity
+  playerPath: D:/Unity Games/Starship 13/Shmup test-1.exe
