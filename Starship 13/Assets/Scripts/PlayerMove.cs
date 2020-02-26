@@ -23,7 +23,6 @@ public class PlayerMove : MonoBehaviour
 
     Highscore highscore;
     Hearts hearts;
-    Weapon gunjam;
 
     bool invulnerable = false;
 
@@ -41,7 +40,6 @@ public class PlayerMove : MonoBehaviour
 
         highscore = GameObject.FindObjectOfType<Highscore>();
         hearts = GameObject.FindObjectOfType<Hearts>();
-        gunjam = GameObject.FindObjectOfType<Weapon>();
     }
 
     /*private void OnDestroy()
@@ -70,20 +68,12 @@ public class PlayerMove : MonoBehaviour
     {
         if(invulnerable == false)
         {
-<<<<<<< Updated upstream
-
-            PlayerHit();
-            Destroy(collision.gameObject);
-            //Debug.Log("Lives left: " + playerLives);
-        }
-=======
             if (collision.gameObject.tag == "Enemy")
             {
                 PlayerHit();
                 Destroy(collision.gameObject);
                 //Debug.Log("Lives left: " + playerLives);
             }
->>>>>>> Stashed changes
 
             if (collision.gameObject.tag == "EnemyBullet")
             {
@@ -95,15 +85,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void PlayerHit()
     {
-<<<<<<< Updated upstream
-        // Lose 1 life
-        playerLives--;
-        hearts.livesDown();
-        gunjam.chance = 30;
-        if (playerLives == 0)
-=======
         if(invulnerable == false)
->>>>>>> Stashed changes
         {
             if(playerLives > 1)
             {
@@ -121,12 +103,6 @@ public class PlayerMove : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-<<<<<<< Updated upstream
-        else if(playerLives == 1)
-        {
-            gunjam.chance = 70;
-        }
-=======
         // Lose 1 life
         
     }
@@ -146,7 +122,6 @@ public class PlayerMove : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 12, false);
         invulnerable = false;
         animator.SetBool("Invuln", false);
->>>>>>> Stashed changes
     }
     /*void DisplayLives()
     {

@@ -48,4 +48,11 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Shooting()
+    {
+        var ShotTransform = Instantiate(BulletPrefab);
+
+    }
+
 }
