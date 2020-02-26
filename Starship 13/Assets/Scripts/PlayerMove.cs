@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
 
     Highscore highscore;
     Hearts hearts;
+    Weapon gunjam;
 
 
 
@@ -34,6 +35,7 @@ public class PlayerMove : MonoBehaviour
 
         highscore = GameObject.FindObjectOfType<Highscore>();
         hearts = GameObject.FindObjectOfType<Hearts>();
+        gunjam = GameObject.FindObjectOfType<Weapon>();
     }
 
     private void FixedUpdate()
@@ -75,6 +77,7 @@ public class PlayerMove : MonoBehaviour
         // Lose 1 life
         playerLives--;
         hearts.livesDown();
+        gunjam.chance = 30;
         if (playerLives == 0)
         {
             highscore.saveYourScore();
@@ -82,6 +85,10 @@ public class PlayerMove : MonoBehaviour
             //DisplayLives();
             SceneManager.LoadScene("DeathScene");
             Destroy(gameObject);
+        }
+        else if(playerLives == 1)
+        {
+            gunjam.chance = 70;
         }
     }
     /*void DisplayLives()
