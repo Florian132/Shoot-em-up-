@@ -18,6 +18,12 @@ ScriptsOnlyBuild:
     - Weapon
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -49,17 +55,17 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11160}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11326}
+      Script: {instanceID: 11320}
     - Class: 114
-      Script: {instanceID: 11366}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11442}
+      Script: {instanceID: 11438}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11774}
     - Class: 114
-      Script: {instanceID: 12172}
+      Script: {instanceID: 12170}
     - Class: 114
       Script: {instanceID: 12666}
     - Class: 114
@@ -105,38 +111,44 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 62
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11160}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11194}
+      Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11326}
+      Script: {instanceID: 11320}
     - Class: 114
-      Script: {instanceID: 11366}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11486}
+      Script: {instanceID: 11482}
     - Class: 114
-      Script: {instanceID: 11538}
+      Script: {instanceID: 11534}
     - Class: 114
-      Script: {instanceID: 11550}
+      Script: {instanceID: 11546}
     - Class: 114
-      Script: {instanceID: 11656}
+      Script: {instanceID: 11652}
     - Class: 114
-      Script: {instanceID: 11658}
+      Script: {instanceID: 11654}
     - Class: 114
-      Script: {instanceID: 11716}
+      Script: {instanceID: 11712}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11774}
     - Class: 114
-      Script: {instanceID: 11798}
+      Script: {instanceID: 11794}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 12096}
     - Class: 114
-      Script: {instanceID: 12538}
+      Script: {instanceID: 12536}
     - Class: 114
       Script: {instanceID: 12666}
     - Class: 114
@@ -181,15 +193,15 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11160}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11326}
+      Script: {instanceID: 11320}
     - Class: 114
-      Script: {instanceID: 11366}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11774}
     - Class: 114
-      Script: {instanceID: 12172}
+      Script: {instanceID: 12170}
     - Class: 114
       Script: {instanceID: 12666}
     - Class: 114
@@ -297,6 +309,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 06084172e15769d880a2952b12c980f6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy2
   - hash:
       serializedVersion: 2
       Hash: 234235b9fb07320d11497e08a726cc56
@@ -515,6 +533,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: fce732ffc76511839c8b26836bf8a4bd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy2Weapon
+  - hash:
+      serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -587,7 +611,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 35d0df527a620ad9af8c1d7fb2f14f56
+      Hash: c426dfb23accdfbb94a75977b2f018e5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMove
@@ -749,7 +773,7 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 5
   scenePathNames:
+  - Assets/Scenes/Titel.unity
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/DeathScene.unity
-  - Assets/Scenes/Titel.unity
   playerPath: D:/Unity Games/Starship 13/Shmup test-1.exe

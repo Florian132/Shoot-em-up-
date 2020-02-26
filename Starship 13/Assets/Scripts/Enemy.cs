@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100;
+    public int health = 1;
     private Rigidbody2D rb;
     public int enemySpeed = -2;
     public GameObject BulletPrefab;
@@ -31,7 +31,6 @@ public class Enemy : MonoBehaviour
 
         if(health <= 0)
         {
-            
             Die();
         }
     }

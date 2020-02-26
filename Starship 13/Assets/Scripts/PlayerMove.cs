@@ -9,9 +9,13 @@ public class PlayerMove : MonoBehaviour
     private float moveInputX;
     private float moveInputY;
     public float speed;
+
     private Rigidbody2D rb;
 
+    public Animator animator;
+
     public int playerLives = 3;
+    public int invulnTime;
     private string livesText;
     PolygonCollider2D m_Collider;
 
@@ -20,6 +24,8 @@ public class PlayerMove : MonoBehaviour
     Highscore highscore;
     Hearts hearts;
     Weapon gunjam;
+
+    bool invulnerable = false;
 
 
 
@@ -37,6 +43,12 @@ public class PlayerMove : MonoBehaviour
         hearts = GameObject.FindObjectOfType<Hearts>();
         gunjam = GameObject.FindObjectOfType<Weapon>();
     }
+
+    /*private void OnDestroy()
+    {
+        Physics2D.IgnoreLayerCollision(8, 10, false);
+        Physics2D.IgnoreLayerCollision(8, 12, false);
+    }*/
 
     private void FixedUpdate()
     {
@@ -56,40 +68,85 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(invulnerable == false)
         {
+<<<<<<< Updated upstream
 
             PlayerHit();
             Destroy(collision.gameObject);
             //Debug.Log("Lives left: " + playerLives);
         }
+=======
+            if (collision.gameObject.tag == "Enemy")
+            {
+                PlayerHit();
+                Destroy(collision.gameObject);
+                //Debug.Log("Lives left: " + playerLives);
+            }
+>>>>>>> Stashed changes
 
-        if (collision.gameObject.tag == "EnemyBullet")
-        {
-            PlayerHit();
-            Destroy(collision.gameObject);
-            Debug.Log("Lives left: " + playerLives);
+            if (collision.gameObject.tag == "EnemyBullet")
+            {
+                PlayerHit();
+                Destroy(collision.gameObject);
+                Debug.Log("Lives left: " + playerLives);
+            }
         }
-
     }
     private void PlayerHit()
     {
+<<<<<<< Updated upstream
         // Lose 1 life
         playerLives--;
         hearts.livesDown();
         gunjam.chance = 30;
         if (playerLives == 0)
+=======
+        if(invulnerable == false)
+>>>>>>> Stashed changes
         {
-            highscore.saveYourScore();
-            highscore.newHighScoreCheck();
-            //DisplayLives();
-            SceneManager.LoadScene("DeathScene");
-            Destroy(gameObject);
+            if(playerLives > 1)
+            {
+                StartCoroutine("playerInvulnerable");
+            }
+            playerLives--;
+            hearts.livesDown();
+            
+            if (playerLives == 0)
+            {
+                highscore.saveYourScore();
+                highscore.newHighScoreCheck();
+                //DisplayLives();
+                SceneManager.LoadScene("DeathScene");
+                Destroy(gameObject);
+            }
         }
+<<<<<<< Updated upstream
         else if(playerLives == 1)
         {
             gunjam.chance = 70;
         }
+=======
+        // Lose 1 life
+        
+    }
+
+    IEnumerator playerInvulnerable()
+    {
+
+        //Play invulnerable animation
+        //Make player invulnerable to damage
+        invulnerable = true;
+        animator.SetBool("Invuln", true);
+
+        Physics2D.IgnoreLayerCollision(8, 10, true);
+        Physics2D.IgnoreLayerCollision(8, 12, true);
+        yield return new WaitForSeconds(invulnTime);
+        Physics2D.IgnoreLayerCollision(8, 10, false);
+        Physics2D.IgnoreLayerCollision(8, 12, false);
+        invulnerable = false;
+        animator.SetBool("Invuln", false);
+>>>>>>> Stashed changes
     }
     /*void DisplayLives()
     {
