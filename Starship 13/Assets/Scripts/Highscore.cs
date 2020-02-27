@@ -22,7 +22,7 @@ public class Highscore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        s_Text.text = "Score " + System.Environment.NewLine + score.ToString();
+        s_Text.text = score.ToString();
         if (Input.GetKeyDown(KeyCode.M))
         {
             resetHighScore();

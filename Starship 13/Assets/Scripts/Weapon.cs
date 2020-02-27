@@ -15,12 +15,11 @@ public class Weapon : MonoBehaviour
     private string ammunition;
 
     private bool isReloading = false;
-    public Text bText;
     public Text iText;
 
     BulletsUi bulletsUI;
 
-    public int chance = 30;
+    public int chance = 10;
     private int JamChance;
     private bool Jammed1 = false;
     private bool Jammed2 = false;
@@ -53,13 +52,20 @@ public class Weapon : MonoBehaviour
         KeyCode.Keypad9,
     };
 
+    public Sprite[] numberSprite = new Sprite[10];
+    public Image[] numberImage;
+
 
     private void Start()
     {
         ammo = clipSize;
-        bText = GameObject.Find("BulletsText").GetComponent<Text>();
         iText = GameObject.Find("InputText").GetComponent<Text>();
         ammunition = ammo.ToString();
+        for (int i = 0; i < numberImage.Length; i++)
+        {
+            numberImage[i].enabled = false;
+        }
+        iText.enabled = false;
 
         bulletsUI = GameObject.FindObjectOfType<BulletsUi>();
     }
@@ -69,10 +75,10 @@ public class Weapon : MonoBehaviour
     {
         if (Jammed1)
         {
-            if (Input.GetKeyDown(keys[currentkeys[0]]))
+            if (Input.GetKeyDown(keys[currentkeys[0]]) || Input.GetKeyDown(numpad[currentkeys[0]]))
             {
                 Debug.Log("First Key Pressed");
-                iText.text = currentkeys[1] + " " + currentkeys[2].ToString();
+                numberImage[0].enabled = false;
                 Jammed1 = false;
                 Jammed2 = true;
             }
@@ -83,14 +89,19 @@ public class Weapon : MonoBehaviour
                     Debug.Log("Wrong Key Pressed");
                     Randomize();
                 }
+                if (Input.GetKeyDown(numpad[i]) && !Input.GetKeyDown(numpad[currentkeys[0]]))
+                {
+                    Debug.Log("Wrong Key Pressed");
+                    Randomize();
+                }
             }
         }
 
         else if(Jammed2)
         {
-            if (Input.GetKeyDown(keys[currentkeys[1]]))
+            if (Input.GetKeyDown(keys[currentkeys[1]]) || Input.GetKeyDown(numpad[currentkeys[1]]))
             {
-                iText.text = currentkeys[2].ToString();
+                numberImage[1].enabled = false;
                 Jammed2 = false;
                 Jammed3 = true;
             }
@@ -102,17 +113,24 @@ public class Weapon : MonoBehaviour
                     Jammed2 = false;
                     Jammed1 = true;
                 }
+                if (Input.GetKeyDown(numpad[i]) && !Input.GetKeyDown(numpad[currentkeys[1]]))
+                {
+                    Randomize();
+                    Jammed2 = false;
+                    Jammed1 = true;
+                }
             }
         }
 
         else if(Jammed3)
         {
-            if (Input.GetKeyDown(keys[currentkeys[2]]))
+            if (Input.GetKeyDown(keys[currentkeys[2]]) || Input.GetKeyDown(numpad[currentkeys[2]]))
             {
                 Debug.Log("Reloading");
                 ammo = clipSize;
                 bulletsUI.bulletsReload();
                 gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+                numberImage[2].enabled = false;
                 iText.text = null;
                 isReloading = false;
                 Jammed3 = false;
@@ -120,6 +138,12 @@ public class Weapon : MonoBehaviour
             for (int i = 0; i < keys.Length; i++)
             {
                 if (Input.GetKeyDown(keys[i]) && !Input.GetKeyDown(keys[currentkeys[2]]))
+                {
+                    Randomize();
+                    Jammed3 = false;
+                    Jammed1 = true;
+                }
+                if (Input.GetKeyDown(numpad[i]) && !Input.GetKeyDown(numpad[currentkeys[2]]))
                 {
                     Randomize();
                     Jammed3 = false;
@@ -196,9 +220,11 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < currentkeys.Length; i++)
         {
             currentkeys[i] = Random.Range(0, 9);
+            numberImage[i].sprite = numberSprite[currentkeys[i]];
+            numberImage[i].enabled = true;
+            iText.enabled = true;
         }
         Debug.Log("Keys are randomized");
-        iText.text = currentkeys[0] + " " + currentkeys[1] + " " + currentkeys[2].ToString();
     }
 }
 

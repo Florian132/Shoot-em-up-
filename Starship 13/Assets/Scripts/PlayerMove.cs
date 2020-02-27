@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
 
     Highscore highscore;
     Hearts hearts;
+    Weapon gunjam;
 
     bool invulnerable = false;
 
@@ -40,6 +41,7 @@ public class PlayerMove : MonoBehaviour
 
         highscore = GameObject.FindObjectOfType<Highscore>();
         hearts = GameObject.FindObjectOfType<Hearts>();
+        gunjam = GameObject.FindObjectOfType<Weapon>();
     }
 
     /*private void OnDestroy()
@@ -92,7 +94,9 @@ public class PlayerMove : MonoBehaviour
                 StartCoroutine("playerInvulnerable");
             }
             playerLives--;
+            gunjam.chance = 30;
             hearts.livesDown();
+
             
             if (playerLives == 0)
             {
@@ -101,6 +105,10 @@ public class PlayerMove : MonoBehaviour
                 //DisplayLives();
                 SceneManager.LoadScene("DeathScene");
                 Destroy(gameObject);
+            }
+            else if (playerLives == 1)
+            {
+                gunjam.chance = 60;
             }
         }
         // Lose 1 life
