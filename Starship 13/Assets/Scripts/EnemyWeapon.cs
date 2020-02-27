@@ -10,6 +10,7 @@ public class EnemyWeapon : MonoBehaviour
     public int BulletsNumber = 1;
     private int ShootedBullets = 0;
     private float timer;
+
     void Update()
     {
         while (BulletsNumber != ShootedBullets)

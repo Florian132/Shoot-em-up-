@@ -8,11 +8,12 @@ public class ButtonHandler : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("SampleScene");
-        Destroy(GameObject.FindObjectOfType<Highscore>());
+        Destroy(GameObject.Find("ScoreHolder"));
     }
     public void MainMenu()
     {
         SceneManager.LoadScene("Titel");
+        Destroy(GameObject.Find("ScoreHolder"));
     }
     public void QuitGame()
     {

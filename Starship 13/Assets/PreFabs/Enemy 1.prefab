@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5852447621278151637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.3, z: 0}
+  m_LocalPosition: {x: 0, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8309794899950957286}
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 8309794899950957283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.008613139, y: 4.1599226, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 3610075029350580481}
   m_Father: {fileID: 0}
@@ -130,8 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   enemySpeed: -2
-  BulletPrefab: {fileID: 0}
-  ShootingRate: 0
+  BulletPrefab: {fileID: 1993327339463620462, guid: 20f8b14fd85362c4a95ebe67a2886a39,
+    type: 3}
+  ShootingRate: 2
 --- !u!50 &8309794899950957208
 Rigidbody2D:
   serializedVersion: 4
