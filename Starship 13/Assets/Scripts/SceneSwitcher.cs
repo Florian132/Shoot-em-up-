@@ -12,7 +12,7 @@ public class SceneSwitcher : MonoBehaviour
 
     public void GotoTutorialScene()
     {
-        SceneManager.LoadScene("Tutoral");
+        SceneManager.LoadScene("Tutorial");
     }
     public void GotoQuitScene()
     {
