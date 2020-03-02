@@ -17,8 +17,8 @@ public class SceneRestart : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         SceneManager.LoadScene("SampleScene");
 
-        if (Input.GetKeyDown(KeyCode.P))
-        SceneManager.LoadScene("DeathScene");
+        //if (Input.GetKeyDown(KeyCode.P))
+        //SceneManager.LoadScene("DeathScene");
 
         if (Input.GetKey("escape"))
         Application.Quit();

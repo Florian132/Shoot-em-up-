@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 8309794899950957287, guid: e3396817c57b00d4a9d39657bda6da25,
         type: 3}
       propertyPath: enemySpeed
-      value: -2
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8309794899950957284, guid: e3396817c57b00d4a9d39657bda6da25, type: 3}

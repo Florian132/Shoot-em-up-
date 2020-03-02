@@ -9,6 +9,9 @@ TagManager:
   - Deleter
   - Bullet
   - EnemyBullet
+  - Boss
+  - Border
+  - BossHitBox
   layers:
   - Default
   - TransparentFX
@@ -24,8 +27,8 @@ TagManager:
   - Bullet
   - EnemyBullet
   - Wall
-  - 
-  - 
+  - Boss
+  - BossHitBox
   - 
   - 
   - 

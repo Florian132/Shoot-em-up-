@@ -16,7 +16,7 @@ public class Highscore : MonoBehaviour
         s_Text = GameObject.Find("ScoreText").GetComponent<Text>();
         InvokeRepeating("ScoreSeconds", 0.1f, 0.1f);
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         highScore = loadHighScore();
     }
     // Update is called once per frame
@@ -29,6 +29,12 @@ public class Highscore : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        saveYourScore();
+        newHighScoreCheck();
+    }
+
     //Adds 10 score every second
     void  ScoreSeconds()
     {
@@ -38,10 +44,6 @@ public class Highscore : MonoBehaviour
     public void addScore(int enemyScore)
     {
         score = score + enemyScore;
-    }
-    public int GetScore()
-    {
-        return score;
     }
     public void newHighScoreCheck()
     {
@@ -58,7 +60,7 @@ public class Highscore : MonoBehaviour
     }
     public int loadYourScore()
     {
-        return PlayerPrefs.GetInt("YourScore", score);
+        return PlayerPrefs.GetInt("YourScore");
     }
     public void saveHighScore()
     {

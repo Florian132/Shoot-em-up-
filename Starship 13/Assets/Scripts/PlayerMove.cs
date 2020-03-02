@@ -57,7 +57,8 @@ public class PlayerMove : MonoBehaviour
         moveInputY = Input.GetAxisRaw("Vertical");
 
         // Forces applied to player depending on speed
-        rb.velocity = new Vector2(moveInputX * speed, moveInputY * speed);
+        
+        rb.velocity = new Vector2(moveInputX * speed, moveInputY * speed);        
 
         /*if(livesCheck > playerLives)
         {
@@ -70,21 +71,19 @@ public class PlayerMove : MonoBehaviour
     {
         if(invulnerable == false)
         {
-            if (collision.gameObject.tag == "Enemy")
-            {
-                PlayerHit();
-                Destroy(collision.gameObject);
-                //Debug.Log("Lives left: " + playerLives);
-            }
-
-            if (collision.gameObject.tag == "EnemyBullet")
+            if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
             {
                 PlayerHit();
                 Destroy(collision.gameObject);
                 Debug.Log("Lives left: " + playerLives);
             }
+            else if(collision.gameObject.tag == "Boss")
+            {
+                PlayerHit();
+            }
         }
     }
+
     private void PlayerHit()
     {
         if(invulnerable == false)
@@ -100,8 +99,8 @@ public class PlayerMove : MonoBehaviour
             
             if (playerLives == 0)
             {
-                highscore.saveYourScore();
-                highscore.newHighScoreCheck();
+                //highscore.saveYourScore();
+                //highscore.newHighScoreCheck();
                 //DisplayLives();
                 SceneManager.LoadScene("DeathScene");
                 Destroy(gameObject);
@@ -125,9 +124,13 @@ public class PlayerMove : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(8, 10, true);
         Physics2D.IgnoreLayerCollision(8, 12, true);
+        Physics2D.IgnoreLayerCollision(8, 14, true);
+        Physics2D.IgnoreLayerCollision(8, 15, true);
         yield return new WaitForSeconds(invulnTime);
         Physics2D.IgnoreLayerCollision(8, 10, false);
         Physics2D.IgnoreLayerCollision(8, 12, false);
+        Physics2D.IgnoreLayerCollision(8, 14, false);
+        Physics2D.IgnoreLayerCollision(8, 15, false);
         invulnerable = false;
         animator.SetBool("Invuln", false);
     }

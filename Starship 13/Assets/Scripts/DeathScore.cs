@@ -8,12 +8,12 @@ public class DeathScore : MonoBehaviour
     public Text yourScoreText;
     public Text highScoreText;
 
-    Highscore highscore;
-    // Start is called before the first frame update
+    //Highscore highscore;
+    //Start is called before the first frame update
     void Start()
     {
-        highscore = GameObject.FindObjectOfType<Highscore>();
-        yourScoreText.text = "Final score: " + highscore.loadYourScore().ToString();
-        highScoreText.text = "High score: " + highscore.loadHighScore().ToString();
+        //highscore = GameObject.FindObjectOfType<Highscore>();
+        yourScoreText.text = "Final score: " + PlayerPrefs.GetInt("YourScore", 0);
+        highScoreText.text = "High score: " + PlayerPrefs.GetInt("HighScore", 0);
     }
 }

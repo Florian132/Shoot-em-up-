@@ -6,7 +6,7 @@ public class EnemyWeapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireRate = 10;
+    public float fireRate = 1;
     public int BulletsNumber = 1;
     private int ShootedBullets = 0;
     private float timer;
