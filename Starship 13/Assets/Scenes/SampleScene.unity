@@ -1512,6 +1512,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6330698180089658805, guid: 8128bb723fc768c4a8f6e0629b679499,
+        type: 3}
+      propertyPath: EasyEnemy
+      value: 
+      objectReference: {fileID: 8309794899950957283, guid: e3396817c57b00d4a9d39657bda6da25,
+        type: 3}
+    - target: {fileID: 6330698180089658805, guid: 8128bb723fc768c4a8f6e0629b679499,
+        type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 5160398881212274773, guid: 0fe048a1618c54547828e03c77cb0076,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8128bb723fc768c4a8f6e0629b679499, type: 3}
 --- !u!1 &947569870

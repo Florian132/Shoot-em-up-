@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5160398881212275117}
   - component: {fileID: 5160398882845379694}
   - component: {fileID: 5160398882845379684}
-  m_Layer: 10
-  m_Name: Boss 1 1
+  m_Layer: 14
+  m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   speed: 1
   pointsWorth: 1000
   animator: {fileID: 5160398881212275117}
+  stop: {fileID: 0}
 --- !u!1 &5160398881402481771
 GameObject:
   m_ObjectHideFlags: 0
