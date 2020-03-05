@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         speedController = FindObjectOfType<SpeedController>();
         enemySpeed = speedController.speed;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         rb.velocity = new Vector2(0, enemySpeed);
     }

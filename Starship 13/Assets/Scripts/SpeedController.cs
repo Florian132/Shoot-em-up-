@@ -22,7 +22,7 @@ public class SpeedController : MonoBehaviour
         if (spawner.Wave_Counter == 1)
         {
 
-            speed = speed - 5.0f;
+            speed = speed - 2.0f;
             Debug.Log("Something");
             spawner.Wave_Zero();
         }
