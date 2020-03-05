@@ -6,20 +6,22 @@ public class Enemy : MonoBehaviour
 {
     public int health = 1;
     private Rigidbody2D rb;
-    public int enemySpeed = -2;
+    public float enemySpeed = -2;
     public GameObject BulletPrefab;
     public float ShootingRate;
 
 
     Highscore highscore;
 
-
+    SpeedController speedController;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         highscore = GameObject.FindObjectOfType<Highscore>();
 
+        speedController = FindObjectOfType<SpeedController>();
+        enemySpeed = speedController.speed;
     }
     private void FixedUpdate()
     {

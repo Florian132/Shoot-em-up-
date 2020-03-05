@@ -72,10 +72,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3e6f334a4d8204ab7496b8907b66a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 5806608162089933637, guid: bbbf3084f16d05a4ca7034766e7fc390,
+  EasyEnemy: {fileID: 8309794899950957283, guid: e3396817c57b00d4a9d39657bda6da25,
     type: 3}
-  SpawnTime: 1
+  MediumEnemy: {fileID: 0}
+  HardEnemy: {fileID: 0}
+  Boss: {fileID: 0}
   rend: {fileID: 6330698180089658802}
+  timeBetweenEnemies: 0.25
+  timeBetweenWaves: 5
+  enemiesPerWave: 10
+  Wave_Counter: 0
 --- !u!212 &6330698180089658802
 SpriteRenderer:
   m_ObjectHideFlags: 0

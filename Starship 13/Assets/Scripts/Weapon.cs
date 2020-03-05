@@ -226,5 +226,16 @@ public class Weapon : MonoBehaviour
         }
         Debug.Log("Keys are randomized");
     }
+    public bool GetJamming()
+    {
+        if(Jammed1 || Jammed2 || Jammed3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
