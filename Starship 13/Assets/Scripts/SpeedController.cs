@@ -5,14 +5,21 @@ using UnityEngine;
 public class SpeedController : MonoBehaviour
 {
     Spawner spawner;
-    Enemy enemy;
 
-    public float speed = -2;
+    public float speed;
+
+    private float speedChange;
+
+    public float bulletSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
+        speed = -1;
+
         spawner = FindObjectOfType<Spawner>();
-        enemy = FindObjectOfType<Enemy>();
+
+        speedChange = 0.2f;
     }
 
     // Update is called once per frame
@@ -21,10 +28,24 @@ public class SpeedController : MonoBehaviour
 
         if (spawner.Wave_Counter == 1)
         {
-
-            speed = speed - 2.0f;
-            Debug.Log("Something");
+            if(speed > -5)
+            {
+                speed = speed - (speedChange);
+            }
+            else
+            {
+                speed = -5;
+            }
+            
+            //Debug.Log(speed);
             spawner.Wave_Zero();
+
+            bulletSpeed = speed * 1.5f;
         }
+    }
+
+    public float GetBulletSpeed()
+    {
+        return bulletSpeed;
     }
 }

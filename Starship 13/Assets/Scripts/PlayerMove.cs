@@ -74,6 +74,7 @@ public class PlayerMove : MonoBehaviour
             if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
             {
                 PlayerHit();
+                FindObjectOfType<AudioManager>().Play("PlayerHit");
                 Destroy(collision.gameObject);
                 Debug.Log("Lives left: " + playerLives);
             }

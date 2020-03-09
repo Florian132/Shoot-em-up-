@@ -39,6 +39,6 @@ public class Enemy2 : MonoBehaviour
     {
         highscore.addScore(pointsWorth);
         Destroy(gameObject);
-
+        FindObjectOfType<AudioManager>().Play("enemyDeath");
     }
 }

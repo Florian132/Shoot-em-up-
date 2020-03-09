@@ -75,6 +75,10 @@ public class Weapon : MonoBehaviour
     {
         if (Jammed1)
         {
+            if(Input.GetButtonDown("Fire1"))
+            {
+                FindObjectOfType<AudioManager>().Play("noAmmo");
+            }
             if (Input.GetKeyDown(keys[currentkeys[0]]) || Input.GetKeyDown(numpad[currentkeys[0]]))
             {
                 Debug.Log("First Key Pressed");
@@ -99,6 +103,10 @@ public class Weapon : MonoBehaviour
 
         else if(Jammed2)
         {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                FindObjectOfType<AudioManager>().Play("noAmmo");
+            }
             if (Input.GetKeyDown(keys[currentkeys[1]]) || Input.GetKeyDown(numpad[currentkeys[1]]))
             {
                 numberImage[1].enabled = false;
@@ -124,8 +132,13 @@ public class Weapon : MonoBehaviour
 
         else if(Jammed3)
         {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                FindObjectOfType<AudioManager>().Play("noAmmo");
+            }
             if (Input.GetKeyDown(keys[currentkeys[2]]) || Input.GetKeyDown(numpad[currentkeys[2]]))
             {
+                FindObjectOfType<AudioManager>().Stop("GunJammed");
                 Debug.Log("Reloading");
                 ammo = clipSize;
                 bulletsUI.bulletsReload();
@@ -195,6 +208,7 @@ public class Weapon : MonoBehaviour
     }
     IEnumerator Reload()
     {
+        FindObjectOfType<AudioManager>().Play("Reload");
         //Display "Reloading..." in console 
         Debug.Log("Reloading...");
         gameObject.GetComponent<Renderer>().material.color = new Color(1f, 0f, 0f);
@@ -208,6 +222,7 @@ public class Weapon : MonoBehaviour
     }
     void GunJam()
     {
+        FindObjectOfType<AudioManager>().Play("GunJammed");
         Debug.Log("JAMMED");
         gameObject.GetComponent<Renderer>().material.color = new Color(0f, 0f, 1f);
         Randomize();

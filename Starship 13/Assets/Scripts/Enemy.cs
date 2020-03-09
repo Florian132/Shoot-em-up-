@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int health = 1;
     private Rigidbody2D rb;
-    public float enemySpeed = -2;
+    public float enemySpeed = 0;
     public GameObject BulletPrefab;
     public float ShootingRate;
 
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     {
         highscore.addScore(100);
         Destroy(gameObject);
-        
+        FindObjectOfType<AudioManager>().Play("enemyDeath");
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Deleter")
         {
             Destroy(gameObject);
+            //speedController.speed = speedController.speed - 0.1f;
         }
     }
 
